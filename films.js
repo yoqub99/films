@@ -407,6 +407,7 @@ var films = [
 
 films.forEach((params) => {
     let id = "ID:"
+    let idd = "genres:"
     let taim = new Date (params.release_date)
     let mon = taim.getDate()
     let mon1 = taim.getMonth()
@@ -415,12 +416,14 @@ films.forEach((params) => {
     let newImg = document.createElement("img")
     let newLi = document.createElement("li")
     let newHeader = document.createElement("h3")
+	let newP1 = document.createElement("p")
     let newP = document.createElement("p")
     let newWp = document.createElement("p")
     let newday = document.createElement("p")
     
     newHeader.textContent = params.title
     newP.textContent = params.overview
+	newP1.textContent = idd + params.genres
     newWp.textContent = id + params.id
     newday.textContent = mon4
     newImg.setAttribute('src', params.poster)
@@ -431,6 +434,7 @@ films.forEach((params) => {
     newWp.setAttribute('class', "p")
     newday.setAttribute('class', "p")
     newHeader.setAttribute('class', "p")
+	newP1.setAttribute('class', "p")
     
 
 
@@ -440,5 +444,6 @@ films.forEach((params) => {
     newLi.appendChild(newWp);
     newLi.appendChild(newday);
     newLi.appendChild(newP);
+	newLi.appendChild(newP1);
     list.appendChild(newLi);
 })
